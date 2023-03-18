@@ -1,0 +1,23 @@
+# Compiled files
+target/
+
+# Cargo.lock file
+Cargo.lock
+
+# Environment file
+.env
+
+# Rust toolchain configuration file
+.rustup/
+
+# Editor and IDE files
+.vscode/
+.idea/
+
+# Generated documentation
+target/doc/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+

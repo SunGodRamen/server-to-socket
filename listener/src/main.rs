@@ -1,5 +1,8 @@
-use std::io::{Read};
+use std::io::Read;
 use std::net::{TcpListener, TcpStream};
+
+#[cfg(test)]
+mod app_test;
 
 fn main() {
     let address = "127.0.0.1:7878";

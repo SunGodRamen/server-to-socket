@@ -5,8 +5,14 @@ use std::io::Write;
 use std::net::TcpStream;
 use std::sync::{Arc, Mutex};
 
+#[cfg(test)]
+mod app_test;
+
 #[get("/")]
-async fn get_handler(socket: web::Data<Arc<Mutex<TcpStream>>>, info: web::Query<HashMap<String, String>>) -> impl Responder {
+async fn get_handler(
+    socket: web::Data<Arc<Mutex<TcpStream>>>,
+    info: web::Query<HashMap<String, String>>,
+) -> impl Responder {
     let query = serde_urlencoded::to_string(&*info).unwrap();
     let mut socket = socket.lock().unwrap();
     match socket.write(query.as_bytes()) {
